@@ -1,3 +1,5 @@
+'use strict';
+
 function createStatistic(ctx, name, time, indent) {
   if (name === 'Вы') {
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
@@ -6,7 +8,7 @@ function createStatistic(ctx, name, time, indent) {
     ctx.fillText(name, 170 + indent, 245);
     ctx.fillText(Math.ceil(time), 170 + indent, 120);
   } else {
-    ctx.fillStyle = 'rgba(0, 0, 255,' + Math.random() + ')';
+    ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
     ctx.fillRect(170 + indent, 125, 40, 100);
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
     ctx.fillText(name, 170 + indent, 245);
@@ -21,7 +23,7 @@ function renderStatistics(ctx, names,times) {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
   ctx.fillRect(110, 20, 400, 250);
   ctx.font = '16px PT Mono';
-  ctx.fillStyle = '#ffffff'
+  ctx.fillStyle = '#ffffff';
   ctx.fillText('Ура вы победили!', 130, 50);
   ctx.fillText('Список результатов:', 130, 70);
   ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
