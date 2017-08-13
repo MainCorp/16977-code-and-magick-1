@@ -16,7 +16,7 @@ function createStatistic(ctx, name, time, indent) {
   }
 }
 
-function renderStatistics(ctx, names,times) {
+function renderStatistics(ctx, names, times) {
   var indent = 0;
 
   ctx.strokeRect(100, 10, 420, 270);
