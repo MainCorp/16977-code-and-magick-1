@@ -15,7 +15,6 @@ function createStatistic(ctx, name, time, indent, maxTime) {
   time = Math.ceil(time);
 
   ctx.fillStyle = name === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'rgba(0, 0, 255, ' + randomValue(0.25, 1) + ')';
-  console.log(maxTime);
   ctx.fillRect(170 + indent, 125, 40, calculateHeight(time, maxTime));
   ctx.fillStyle = 'rgba(0, 0, 0, 1)';
   ctx.fillText(name, 170 + indent, 245);
@@ -37,9 +36,9 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
   ctx.fillRect(130, 100, 360, 150);
 
-  for (var i = 0; i < times.length; i++) {
-    if (times[i] > maxTime) {
-      maxTime = times[i];
+  for (var j = 0; j < times.length; j++) {
+    if (times[j] > maxTime) {
+      maxTime = times[j];
     }
   }
 
