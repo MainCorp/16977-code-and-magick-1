@@ -1,6 +1,6 @@
 'use strict';
 
-function randomInteger(min, max) {
+function randomValue(min, max) {
   var rand = Math.abs(min - 0.5 + Math.random() * (max - min + 1));
 
   return rand;
