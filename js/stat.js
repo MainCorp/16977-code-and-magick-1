@@ -8,13 +8,8 @@ function randomInteger(min, max) {
 
 function calculateHeight(time, times) {
   var maxHeightColumn = 100;
-  times = times.sort(function(a, b) {
-    return Math.ceil(a) - Math.ceil(b);
-  });
-
   var columnHeight = time / times[times.length - 1] * maxHeightColumn;
 
-  console.log(columnHeight);
   return columnHeight;
 }
 
@@ -31,6 +26,9 @@ function createStatistic(ctx, name, time, indent, times) {
 
 window.renderStatistics = function (ctx, names, times) {
   var indent = 0;
+  times = times.sort(function (a, b) {
+    return Math.ceil(a) - Math.ceil(b);
+  });
 
   ctx.fillStyle = 'rgba(0, 0, 0, .7)';
   ctx.fillRect(110, 20, 420, 270);
