@@ -1,9 +1,7 @@
 'use strict';
 
 function randomValue(min, max) {
-  var rand = Math.abs(min - 0.5 + Math.random() * (max - min + 1));
-
-  return rand;
+  return Math.rand(max - min) + min;
 }
 
 function calculateHeight(time, times) {
