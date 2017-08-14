@@ -1,21 +1,23 @@
 'use strict';
 
+var maxHeightColumn = 100;
+
 function randomValue(min, max) {
   return Math.random(max - min) + min;
 }
 
 function calculateHeight(time, maxTime) {
-  var maxHeightColumn = 100;
   var columnHeight = time / maxTime * maxHeightColumn;
 
   return columnHeight;
 }
 
 function createStatistic(ctx, name, time, indent, maxTime) {
+  var restColumn = maxHeightColumn - calculateHeight(time, maxTime);
   time = Math.ceil(time);
 
   ctx.fillStyle = name === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'rgba(0, 0, 255, ' + randomValue(0.25, 1) + ')';
-  ctx.fillRect(170 + indent, 125, 40, calculateHeight(time, maxTime));
+  ctx.fillRect(170 + indent, 125 + restColumn, 40, calculateHeight(time, maxTime));
   ctx.fillStyle = 'rgba(0, 0, 0, 1)';
   ctx.fillText(name, 170 + indent, 245);
   ctx.fillText(time, 170 + indent, 120);
