@@ -20,7 +20,7 @@ function createStatistic(ctx, name, time, indent, maxTime) {
   ctx.fillRect(170 + indent, 125 + restColumn, 40, calculateHeight(time, maxTime));
   ctx.fillStyle = 'rgba(0, 0, 0, 1)';
   ctx.fillText(name, 170 + indent, 245);
-  ctx.fillText(time, 170 + indent, 120);
+  ctx.fillText(time, 170 + indent, 120 + restColumn);
 }
 
 window.renderStatistics = function (ctx, names, times) {
