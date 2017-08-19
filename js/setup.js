@@ -49,27 +49,18 @@ var eyesColors = [
   'green'
 ];
 
-var mages = {
-  name: firstNames,
-  lastName: lastNames,
-  coatColor: coatColors,
-  eyesColor: eyesColors
-};
+function randomElement(el) {
+  var random = Math.ceil(Math.random() * (el.length - 1));
 
-function random(num) {
-  return Math.ceil(Math.random() * num);
-}
-
-function randomElement(obj, el) {
-  return obj[random(el.length - 1)];
+  return el[random];
 }
 
 function createMage() {
   var mageElement = similarWizzardTemplate.cloneNode(true);
 
-  mageElement.querySelector('.setup-similar-label').textContent = randomElement(mages.name, firstNames) + ' ' + randomElement(mages.lastName, lastNames);
-  mageElement.querySelector('.wizard-coat').style.fill = randomElement(mages.coatColor, coatColors);
-  mageElement.querySelector('.wizard-eyes').style.fill = randomElement(mages.eyesColor, eyesColors);
+  mageElement.querySelector('.setup-similar-label').textContent = randomElement(firstNames) + ' ' + randomElement(lastNames);
+  mageElement.querySelector('.wizard-coat').style.fill = randomElement(coatColors);
+  mageElement.querySelector('.wizard-eyes').style.fill = randomElement(eyesColors);
 
 
   return mageElement;
