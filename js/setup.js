@@ -50,7 +50,7 @@ var eyesColors = [
 ];
 
 function randomElement(el) {
-  var random = Math.round(Math.random() * (el.length - 1));
+  var random = Math.floor(Math.random() * el.length);
 
   return el[random];
 }
