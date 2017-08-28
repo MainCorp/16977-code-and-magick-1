@@ -8,7 +8,7 @@ var setupOpen = document.querySelector('.setup-open');
 var setupClose = document.querySelector('.setup-close');
 var setupOpenIcon = document.querySelector('.setup-open-icon');
 var inputUserName = document.querySelector('.setup-user-name');
-var saveSetup = document.querySelector('.setup-submit')
+var saveSetup = document.querySelector('.setup-submit');
 
 var setupWizzard = document.querySelector('.setup-wizard');
 var wizardCoat = setupWizzard.querySelector('.wizard-coat');
@@ -111,53 +111,55 @@ setupOpen.addEventListener('click', showSetupHandler);
 setupClose.addEventListener('click', closeSetupHandler);
 saveSetup.addEventListener('click', closeSetupHandler);
 
-document.body.addEventListener('keydown', function(evt) {
+document.body.addEventListener('keydown', function (evt) {
   if (evt.keyCode === KEY_CLOSE_SETUP) {
     closeSetupHandler();
   }
 });
 
-setupOpenIcon.addEventListener('focus', function() {
-  this.addEventListener('keydown', function(evt) {
+setupOpenIcon.addEventListener('focus', function () {
+  setupOpenIcon.addEventListener('keydown', function (evt) {
     if (evt.keyCode === KEY_OPEN_SETUP) {
       showSetupHandler();
     }
   });
 });
 
-inputUserName.addEventListener('focus', function() {
-  this.addEventListener('keydown', function(evt) {
+inputUserName.addEventListener('focus', function () {
+  inputUserName.addEventListener('keydown', function (evt) {
     if (evt.keyCode === KEY_CLOSE_SETUP) {
       showSetupHandler();
       return false;
+    } else {
+      return true;
     }
   });
 });
 
-setupClose.addEventListener('focus', function() {
-  this.addEventListener('keydown', function(evt) {
+setupClose.addEventListener('focus', function () {
+  setupClose.addEventListener('keydown', function (evt) {
     if (evt.keyCode === KEY_OPEN_SETUP) {
       closeSetupHandler();
     }
   });
 });
 
-saveSetup.addEventListener('focus', function() {
-  this.addEventListener('keydown', function(evt) {
+saveSetup.addEventListener('focus', function () {
+  saveSetup.addEventListener('keydown', function (evt) {
     if (evt.keyCode === KEY_OPEN_SETUP) {
       closeSetupHandler();
     }
   });
 });
 
-wizardCoat.addEventListener('click', function(evt) {
+wizardCoat.addEventListener('click', function (evt) {
   evt.target.style.fill = randomElement(coatColors);
-})
+});
 
-wizardEyes.addEventListener('click', function(evt) {
+wizardEyes.addEventListener('click', function (evt) {
   evt.target.style.fill = randomElement(eyesColors);
 });
 
-wizzardFireball.addEventListener('click', function(evt) {
-  evt.target.style.backgroundColor =randomElement(colorFireballs);
-})
+wizzardFireball.addEventListener('click', function (evt) {
+  evt.target.style.backgroundColor = randomElement(colorFireballs);
+});
