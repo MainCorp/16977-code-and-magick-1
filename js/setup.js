@@ -112,44 +112,46 @@ setupClose.addEventListener('click', closeSetupHandler);
 saveSetup.addEventListener('click', closeSetupHandler);
 
 document.body.addEventListener('keydown', function (evt) {
+  evt.stopPropagation();
+
   if (evt.keyCode === KEY_CLOSE_SETUP) {
     closeSetupHandler();
   }
 });
 
-setupOpenIcon.addEventListener('focus', function () {
-  setupOpenIcon.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === KEY_OPEN_SETUP) {
-      showSetupHandler();
-    }
-  });
+setupOpenIcon.addEventListener('keydown', function (evt) {
+  evt.stopPropagation();
+
+  if (evt.keyCode === KEY_OPEN_SETUP) {
+    showSetupHandler();
+  }
 });
 
-inputUserName.addEventListener('focus', function () {
-  inputUserName.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === KEY_CLOSE_SETUP) {
-      showSetupHandler();
-      return false;
-    } else {
-      return true;
-    }
-  });
+inputUserName.addEventListener('keydown', function (evt) {
+  evt.stopPropagation();
+
+  if (evt.keyCode === KEY_CLOSE_SETUP) {
+    showSetupHandler();
+    return false;
+  } else {
+    return true;
+  }
 });
 
-setupClose.addEventListener('focus', function () {
-  setupClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === KEY_OPEN_SETUP) {
-      closeSetupHandler();
-    }
-  });
+setupClose.addEventListener('keydown', function (evt) {
+  evt.stopPropagation();
+
+  if (evt.keyCode === KEY_OPEN_SETUP) {
+    closeSetupHandler();
+  }
 });
 
-saveSetup.addEventListener('focus', function () {
-  saveSetup.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === KEY_OPEN_SETUP) {
-      closeSetupHandler();
-    }
-  });
+saveSetup.addEventListener('keydown', function (evt) {
+  evt.stopPropagation();
+
+  if (evt.keyCode === KEY_OPEN_SETUP) {
+    closeSetupHandler();
+  }
 });
 
 wizardCoat.addEventListener('click', function (evt) {
