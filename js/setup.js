@@ -128,13 +128,9 @@ setupOpenIcon.addEventListener('keydown', function (evt) {
 });
 
 inputUserName.addEventListener('keydown', function (evt) {
-  evt.stopPropagation();
-
   if (evt.keyCode === KEY_CLOSE_SETUP) {
-    showSetupHandler();
-    return false;
-  } else {
-    return true;
+    evt.stopPropagation();
+    closeSetupHandler();
   }
 });
 
