@@ -70,11 +70,33 @@ var colorFireballs = [
   '#e6e848'
 ];
 
+var storage = localStorage;
+
 function randomElement(el) {
   var random = Math.floor(Math.random() * el.length);
 
   return el[random];
 }
+
+function randomElementChange(el, prev) {
+  var random = Math.floor(Math.random() * el.length);
+  console.log(prev);
+  console.log(random === prev);
+
+  if (random === prev) {
+    random = Math.floor(Math.random() * el.length);
+
+    console.log(random);
+    storage.setItem('lastNumber', random);
+    return el[random];
+  } else {
+    console.log(random);
+    storage.setItem('lastNumber', random);
+    return el[random];
+  }
+}
+
+randomElementChange(['Привет', 'Пока'], Number(storage.getItem('lastNumber')));
 
 function createMage() {
   var mageElement = similarWizzardTemplate.cloneNode(true);
